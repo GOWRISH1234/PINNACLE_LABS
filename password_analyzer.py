@@ -57,4 +57,5 @@ def analyze_password(password):
 if __name__ == "__main__":
     print("Password Strength Analyzer")
     password = input("Enter your password: ")
-    analyze_password(password)
+    analyze_password(password) 
+
