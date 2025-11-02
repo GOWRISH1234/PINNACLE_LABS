@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Encryption Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .encryption-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .image-box {
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .image-box img {
+            max-width: 100%;
+            max-height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .key-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            background: #00bcd4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #019aa8;
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .btn-secondary {
+            background: #ff9800;
+        }
+        
+        .btn-secondary:hover {
+            background: #e68900;
+        }
+        
+        .btn-danger {
+            background: #f44336;
+        }
+        
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+        
+        .file-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .status-success {
+            background: #dff0d8;
+            color: #3c763d;
+        }
+        
+        .status-error {
+            background: #f2dede;
+            color: #a94442;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image Encryption Tool</h1>
+        <p>Encrypt and decrypt your images with JavaScript</p>
+    </header>
+
+    <div class="container">
+        <section class="encryption-section">
+            <h2>Upload Image</h2>
+            <div class="controls">
+                <input type="file" id="imageInput" class="file-input" accept="image/*">
+                <input type="text" id="encryptionKey" class="key-input" placeholder="Enter encryption key (e.g., password123)">
+                <div>
+                    <button id="encryptBtn" class="btn">Encrypt Image</button>
+                    <button id="decryptBtn" class="btn btn-secondary" disabled>Decrypt Image</button>
+                    <button id="downloadBtn" class="btn btn-danger hidden">Download Processed Image</button>
+                </div>
+            </div>
+            
+            <div id="statusMessage" class="status hidden"></div>
+            
+            <div class="image-container">
+                <div class="image-box">
+                    <h3>Original Image</h3>
+                    <img id="originalImage" src="" alt="Original image will appear here">
+                </div>
+                <div class="image-box">
+                    <h3>Processed Image</h3>
+                    <img id="processedImage" src="" alt="Processed image will appear here">
+                </div>
+            </div>
+        </section>
+        
+        <section class="encryption-section">
+            <h2>How It Works</h2>
+            <p>This tool uses XOR encryption to encrypt your images:</p>
+            <ol>
+                <li>Upload an image file</li>
+                <li>Enter an encryption key</li>
+                <li>Click "Encrypt Image" to encrypt the image</li>
+                <li>Use the same key to decrypt the encrypted image</li>
+                <li>Download the processed image when needed</li>
+            </ol>
+            <p><strong>Note:</strong> The encryption is done entirely in your browser. No images are uploaded to any server.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Image Encryption Tool</p>
+    </footer>
+
+    <script src="image-encryption.js"></script>
+</body>
+</html>
